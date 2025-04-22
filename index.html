@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App Web AR con A-Frame</title>
+    <title>AR App con A-Frame + Hiro</title>
+    <meta charset="utf-8" />
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
-      #loading { position: absolute; top: 10px; left: 10px; color: white; font-family: sans-serif; }
+      #loading {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        font-family: sans-serif;
+        z-index: 1;
+      }
     </style>
   </head>
   <body>
     <div id="loading">Cargando cámara...</div>
 
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
-      <!-- Marcador tipo Hiro -->
+      <!-- Marcador Hiro -->
       <a-marker preset="hiro">
-        <a-box position="0 0.5 0" color="red"></a-box>
-      </a-marker>
-
-      <!-- Marcador personalizado -->
-      <a-marker type="pattern" url="markers/mi-marcador.patt">
-        <a-sphere position="0 0.5 0" radius="0.3" color="blue"></a-sphere>
+        <!-- Cubo rojo -->
+        <a-box position="0 0.5 0" color="red" depth="1" height="1" width="1"></a-box>
       </a-marker>
 
       <!-- Cámara -->
