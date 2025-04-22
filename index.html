@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Web AR con A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.2/aframe/build/aframe-ar.min.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #loading { position: absolute; top: 10px; left: 10px; color: white; font-family: sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Cargando cámara...</div>
+
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Marcador tipo Hiro -->
+      <a-marker preset="hiro">
+        <!-- Modelo simple (cubo rojo) -->
+        <a-box position="0 0.5 0" color="red"></a-box>
+      </a-marker>
+
+      <!-- Cámara -->
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+      window.addEventListener('arjs-video-loaded', () => {
+        document.getElementById('loading').style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
