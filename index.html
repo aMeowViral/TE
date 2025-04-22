@@ -12,11 +12,15 @@
   <body>
     <div id="loading">Cargando cámara...</div>
 
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
       <!-- Marcador tipo Hiro -->
       <a-marker preset="hiro">
-        <!-- Modelo simple (cubo rojo) -->
         <a-box position="0 0.5 0" color="red"></a-box>
+      </a-marker>
+
+      <!-- Marcador personalizado -->
+      <a-marker type="pattern" url="markers/miMarcador1.patt">
+        <a-sphere position="0 0.5 0" radius="0.3" color="blue"></a-sphere>
       </a-marker>
 
       <!-- Cámara -->
@@ -30,3 +34,4 @@
     </script>
   </body>
 </html>
+
